@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-terminal-bg text-terminal-text font-mono;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-terminal-border;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-terminal-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-terminal-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-terminal-muted;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded border border-terminal-border
+           bg-terminal-surface text-terminal-text text-xs uppercase tracking-wider
+           hover:border-accent-primary hover:text-accent-primary
+           transition-all duration-150 ease-in-out
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-primary/10 border-accent-primary text-accent-primary
+           hover:bg-accent-primary/20;
+  }
+
+  .btn-danger {
+    @apply btn border-accent-red text-accent-red
+           hover:bg-accent-red/10;
+  }
+
+  .input {
+    @apply px-3 py-2 rounded border border-terminal-border
+           bg-terminal-bg text-terminal-text
+           focus:outline-none focus:border-accent-primary
+           placeholder:text-terminal-muted;
+  }
+
+  .panel {
+    @apply bg-terminal-surface border border-terminal-border rounded-lg;
+  }
+
+  .track {
+    @apply h-12 bg-terminal-bg border-b border-terminal-border
+           relative overflow-hidden;
+  }
+
+  .segment {
+    @apply absolute top-1 bottom-1
+           bg-accent-cyan/10 border-l-[3px] border-l-accent-cyan
+           cursor-grab active:cursor-grabbing
+           hover:bg-accent-cyan/20 transition-colors;
+  }
+
+  .segment.caption {
+    @apply bg-accent-amber/10 border-l-accent-amber
+           hover:bg-accent-amber/20;
+  }
+
+  .playhead {
+    @apply absolute top-0 bottom-0 w-0.5 bg-accent-primary
+           pointer-events-none z-50;
+  }
+
+  .playhead::before {
+    content: '';
+    @apply absolute -top-1 left-1/2 -translate-x-1/2
+           w-0 h-0 border-l-4 border-r-4 border-t-8
+           border-l-transparent border-r-transparent border-t-accent-primary;
+  }
+}

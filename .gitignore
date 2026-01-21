@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Data directory (uploads, exports, temp files)
+data/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude Code local settings (personal permissions)
+.claude/settings.local.json
+
+# Bun
+bun.lockb
+
+# Test coverage
+coverage/
+
+# Mockups / design artifacts
+mockups/
+
+# Temp files
+*.tmp
+*.temp

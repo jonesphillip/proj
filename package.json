@@ -1,0 +1,23 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run dev:server & bun run dev:web",
+    "dev:server": "bun run --cwd packages/server dev",
+    "dev:web": "bun run --cwd packages/web dev",
+    "build": "bun run --parallel build:shared build:ffmpeg && bun run --parallel build:server build:web",
+    "build:shared": "bun run --cwd packages/shared build",
+    "build:ffmpeg": "bun run --cwd packages/ffmpeg build",
+    "build:server": "bun run --cwd packages/server build",
+    "build:web": "bun run --cwd packages/web build",
+    "typecheck": "bun run typecheck:shared && bun run typecheck:ffmpeg && bun run typecheck:server && bun run typecheck:web",
+    "typecheck:shared": "bun run --cwd packages/shared typecheck",
+    "typecheck:ffmpeg": "bun run --cwd packages/ffmpeg typecheck",
+    "typecheck:server": "bun run --cwd packages/server typecheck",
+    "typecheck:web": "bun run --cwd packages/web typecheck"
+  }
+}
